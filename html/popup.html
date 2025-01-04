@@ -1,0 +1,44 @@
+<!doctype html >
+<html>
+  <head>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body class="popupBody">
+
+    <div>
+      <p>Выберите дополнительные функции</p>
+    </div>
+    <!-- КТП -->
+    <label><b>Работа с КТП</b></label>
+    <div id="KTPBlock">
+      <table>
+        <tr>
+          <td width="250px">Импорт КТП</td><td><input id="importKTP" type="checkbox"></td>
+        </tr>
+        <tr> 
+          <td width="250px">Выгрузка КТП</td><td><input id="exportKTP" type="checkbox"></td>
+        </tr>
+        <tr> 
+          <td width="250px">Очистка КТП</td><td><input id="clearKTP" type="checkbox"></td>
+        </tr>
+      </table>
+    </div>
+    <!-- Журнал -->
+    <label><b>Работа с журналом</b></label>
+    <div id="JournalBlock">
+      <table>
+        <tr>
+          <td width="250px">Показывать темы</td><td><input id="themesJournal" type="checkbox"></td>
+        </tr>
+        <tr> 
+          <td width="250px">Показать количество отсутствующих</td><td><input id="absentJournal" type="checkbox"></td>
+        </tr>
+        <tr> 
+          <td width="250px">Показать количество присутствующих</td><td><input id="presentJournal" type="checkbox"></td>
+        </tr>
+      </table>
+    </div>
+    <script src="../js/popup.js"></script>
+  </body>
+</html>

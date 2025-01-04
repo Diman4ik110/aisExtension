@@ -1,0 +1,50 @@
+
+#ImportForm {
+    display: block;
+    padding: 5px;
+    background-color:white;
+    border: 1px black solid;
+    border-radius: 5px; 
+    position: absolute;
+    line-height: 20px; 
+    width: 300px;
+    height: 200px;
+    justify-content: center;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#ImportForm label{
+    margin-top: 10px;
+}
+#ImportForm input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#ImportForm button {
+    display: flex;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.popupBody{
+    width: 300px;
+}
+#KTPblock{
+    width: 100px;
+    height: 100px;
+}
+#KTPblock label{
+    display: table;
+}
+#JournalBlock{
+    display: block;
+    width: 300px;
+    height: 100px;
+}
+#JournalBlock label{
+    display: inline-block;
+}

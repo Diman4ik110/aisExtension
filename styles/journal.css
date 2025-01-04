@@ -1,0 +1,8 @@
+.themeName {
+	writing-mode: vertical-rl;
+	white-space:nowrap;
+	transform:scale(-1);
+}
+#cellName {
+	vertical-align: bottom;
+}
