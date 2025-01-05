@@ -23,11 +23,15 @@
     margin-bottom: 10px;
 }
 #ImportForm button {
-    display: flex;
-    top: 50px;
+    display: inline-block;
+    margin-left: 10px;
+
+}
+#ImportForm div{
+    width: 180px;
+    height: 40px;
     left: 0;
     right: 0;
-    bottom: 0;
     margin: auto;
 }
 .popupBody{
