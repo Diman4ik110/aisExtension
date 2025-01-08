@@ -109,11 +109,15 @@ function importKTP(file, delimiter) {
                 var xhr = new XMLHttpRequest();
                 str = "https://spo.ruobr.ru/study/ktp/" + window.location.href.split("/")[5] + "/add/"
                 xhr.open("POST", str, false);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                var request = `ktp_subject=${window.location.href.split("/")[5]}&order_num=${i - 1}&name=${data[0]}&duration=${data[1]}&text=${data[2]}&hw=&csrfmiddlewaretoken=${document.cookie.split(";")[0].split("=")[1]}`;
-                xhr.onprogress = function(event) { // запускается периодически
-                    console.log(`Отправлено ${i}`);
-                };
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                var request = "ktp_subject=" +
+                `${window.location.href.split("/")[5]}` + 
+                "&order_num=" + `${i}` +
+                "&name=" +`${encodeURIComponent(data[0])}` + 
+                "&duration=" + `${data[2]}` +
+                "&text="+ `${encodeURIComponent(data[3])}`
+                request += "&hw=" + `${(data[4] == "Нет") ? "" : encodeURIComponent(data[4])}`;
+                request += "&csrfmiddlewaretoken=" + `${document.cookie.split(";")[0].split("=")[1]}`;
                 xhr.send(request);
             }
         }
@@ -154,7 +158,7 @@ function clearKTP() {
 // Экспорт КТП в файл csv
 function exportKTP() {
     // Переменная для хранения данных в файл
-    let data = "Порядковый номер,Тема урока,Черновик,Количество часов,Содержание\n";
+    let data = "Тема урока;Черновик;Количество часов;Содержание;Самостоятельная работа;\n";
     // Получаем таблицу
     let table = document.querySelector("table");
     // Получаем все строки
@@ -170,13 +174,14 @@ function exportKTP() {
             if (cells[j].innerText != "—"){
                 if (j == 3) {
                     data += cells[j].innerHTML.match("Да").index != 0 ? "Да" : "Нет";
-                    data += ",";
+                    data += ";";
                 }else {
-                    data += cells[j].innerText + ",";
+
+                    data += cells[j].innerText + ";";
                 }
             }
-            else{
-                data += ",";
+            else {
+                data += "Нет" + ";";
             }
         }
         data += "\n";
@@ -187,5 +192,4 @@ function exportKTP() {
     var dataBlob = new Blob([data], {type: 'text/plain'});
     link.href = window.URL.createObjectURL(dataBlob);
     link.click();
-    console.log(data);
 }
